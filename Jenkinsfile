@@ -24,8 +24,7 @@ pipeline {
 
     stage('check version') {
       steps {
-            sh 'aws --version'
-        }
+        sh 'aws --version'
       }
     }
 
