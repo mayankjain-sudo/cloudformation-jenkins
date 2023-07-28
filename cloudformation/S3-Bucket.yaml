@@ -12,7 +12,7 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Sub ${AWS::AccountId}-${S3BucketName}
-      AccessControl: Public
+      AccessControl: PublicRead
       BucketEncryption:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:
