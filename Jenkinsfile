@@ -26,6 +26,7 @@ pipeline {
       steps {
         ansiColor('xterm') {
           sh 'aws --version'
+          sh "chmod +x -R ${env.WORKSPACE}"
         }
       }
     }
