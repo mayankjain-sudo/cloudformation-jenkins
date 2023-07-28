@@ -24,7 +24,9 @@ pipeline {
 
     stage('check version') {
       steps {
-        sh 'aws --version'
+        ansiColor('xterm') {
+          sh 'aws --version'
+        }
       }
     }
 
@@ -55,11 +57,9 @@ pipeline {
       }
       steps {
         ansiColor('xterm') {
-          container("jenkins-agent") {
             withAWS(credentials: 'mayankaws-jenkins', region: 'ap-south-1') {
                 sh 'scripts/deploy-stack.sh ${STACK_NAME} ${PARAMETERS_FILE_NAME} ${TEMPLATE_NAME} ${CHANGESET_MODE} ${REGION}'
             }
-          }
         }
       }
     }
@@ -70,11 +70,9 @@ pipeline {
       }
       steps {
         ansiColor('xterm') {
-          container("jenkins-agent") {
             withAWS(credentials: 'mayankaws-jenkins', region: 'ap-south-1') {
                 sh 'scripts/deploy-stack.sh ${STACK_NAME} ${PARAMETERS_FILE_NAME} ${TEMPLATE_NAME} ${CHANGESET_MODE} ${REGION}'
             }
-          }
         }
       }
     }
@@ -85,11 +83,9 @@ pipeline {
       }
       steps {
         ansiColor('xterm') {
-          container("jenkins-agent") {
             withAWS(credentials: 'mayankaws-jenkins', region: 'ap-south-1') {
                 sh 'scripts/delete-stack.sh ${STACK_NAME} ${REGION}'
             }
-          }
         }
       }
     }
