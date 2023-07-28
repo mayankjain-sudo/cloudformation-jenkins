@@ -13,8 +13,6 @@ Resources:
     Properties:
       BucketName: !Sub ${AWS::AccountId}-${S3BucketName}
       AccessControl: Private
-      VersioningConfiguration:
-        Status: Enabled
       BucketEncryption:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:
