@@ -13,6 +13,8 @@ Resources:
     Properties:
       BucketName: !Sub ${AWS::AccountId}-${S3BucketName}
       AccessControl: PublicRead
+      BlockPublicPolicy: false
+      RestrictPublicBuckets: false
       BucketEncryption:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:
